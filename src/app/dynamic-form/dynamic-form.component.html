@@ -1,4 +1,5 @@
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <!-- iterate over the controls and pass each into the dynamic form control component along with 'form' -->
     <div *ngFor="let control of controls">
         <app-dynamic-form-control [control]="control" [form]="form"></app-dynamic-form-control>
     </div>
@@ -6,5 +7,6 @@
     <button type="submit" [disabled]="!form.valid">Save</button>
 </form>
 
+<!-- debugging purposes -->
 <strong>Saved the following values</strong>
 <br>{{ payLoad }}
