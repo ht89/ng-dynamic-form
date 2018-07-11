@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
     styleUrls: ['./dynamic-form-control.component.scss']
 })
 export class DynamicFormControlComponent implements OnInit {
+    // these inputs are passed in from dynamic-form.component
     @Input() control: BaseControl<any>;
     @Input() form: FormGroup;
 

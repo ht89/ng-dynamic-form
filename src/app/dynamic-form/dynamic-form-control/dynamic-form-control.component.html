@@ -1,11 +1,14 @@
 <div [formGroup]="form"> <!--defined here again since formGroup always goes with formControlName-->
-    
-    <!-- for attribute specifies which form element a label is associated with -->
-    <!-- e.g. when having a custom radio, it allows you to click on the label which is the same as clicking the input -->
+
+    <!-- 'for' attribute specifies which form element a label is associated with -->
+    <!-- e.g. when having checkboxes/radios, it allows you to click on the label which is the same as clicking the input -->
     <!-- https://stackoverflow.com/questions/18432376/what-does-for-attribute-do-in-html-label-tag -->
     <label [attr.for]="control.key">{{ control.label }}</label>
 
+    <!-- decide which control should be displayed based on control.type -->
     <div [ngSwitch]="control.type">
+        <!-- pass the control.key to formControlName which is part of Angular reactive forms -->
+        <!-- id attribute is associated with the for attribute of labels -->
         <input *ngSwitchCase="'textbox'" [formControlName]="control.key" [id]="control.key" [type]="control.inputType">
 
         <select *ngSwitchCase="'dropdown'" [formControlName]="control.key">
@@ -15,5 +18,6 @@
         <!-- define more elements here -->
     </div>
 
+    <!-- each control has validation(s) that show an error message when validation(s) fail -->
     <div *ngIf="!isValid" class="errorMessage">{{control.label}} is required</div>
 </div>
