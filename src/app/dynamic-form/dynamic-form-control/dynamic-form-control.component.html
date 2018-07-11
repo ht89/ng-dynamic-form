@@ -1,4 +1,8 @@
 <div [formGroup]="form"> <!--defined here again since formGroup always goes with formControlName-->
+    
+    <!-- for attribute specifies which form element a label is associated with -->
+    <!-- e.g. when having a custom radio, it allows you to click on the label which is the same as clicking the input -->
+    <!-- https://stackoverflow.com/questions/18432376/what-does-for-attribute-do-in-html-label-tag -->
     <label [attr.for]="control.key">{{ control.label }}</label>
 
     <div [ngSwitch]="control.type">
