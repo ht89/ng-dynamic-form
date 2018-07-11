@@ -12,6 +12,11 @@ export class AppComponent {
     controls: any[];
 
     constructor() {
+        /*
+            You can see how the options argument is passed into the Dropdown and Textbox classes.
+            The classes extend the BaseControl class.
+        //
+        */
         const controls: BaseControl<any>[] = [
             new Dropdown({
                 key: 'brave',
