@@ -1,15 +1,10 @@
-<div>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div *ngFor="let control of controls" class="form-row">
-            <app-dynamic-form-control [control]="control" [form]="form"></app-dynamic-form-control>
-        </div>
-
-        <div class="form-row">
-            <button type="submit" [disabled]="!form.valid">Save</button>
-        </div>
-    </form>
-
-    <div class="form-row">
-        <strong>Saved the following values</strong><br>{{ payLoad }}
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div *ngFor="let control of controls">
+        <app-dynamic-form-control [control]="control" [form]="form"></app-dynamic-form-control>
     </div>
-</div>
+
+    <button type="submit" [disabled]="!form.valid">Save</button>
+</form>
+
+<strong>Saved the following values</strong>
+<br>{{ payLoad }}
